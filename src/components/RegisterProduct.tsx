@@ -16,10 +16,9 @@ export default function RegisterProduct() {
   }
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { id, value, type } = event.target;
+    const { id, value, valueAsNumber, type } = event.target;
 
     if (type === "number") {
-      const valueAsNumber = parseFloat(value).toFixed(2);
       setFormData({
         ...formData,
         [id]: valueAsNumber
@@ -29,6 +28,11 @@ export default function RegisterProduct() {
       setFormData({
         ...formData,
         [id]: selectedFile
+      });
+    } else if (id === 'tags') {
+      setFormData({
+        ...formData,
+        [id]: value
       });
     } else {
       setFormData({
@@ -49,12 +53,12 @@ export default function RegisterProduct() {
   return (
     <main className="grow w-full flex flex-col justify-center items-center">
       <div className="flex flex-col grow gap-1 items-center w-full">
-        <h1 className="text-emerald-500 mt-5 text-2xl font-medium">Cadastrar novo produto</h1>
+        <h1 className="text-emerald-500 mt-5 text-3xl font-semibold">Cadastrar novo produto</h1>
         <div className="flex items-center justify-around border-2 border-red-500 w-4/5 h-full max-sm:flex-col-reverse">
-          <form onSubmit={onSubmit} className="flex font-medium flex-col gap-2 shadow-md px-8 pt-6 h-fit pb-8 mb-4 w-80">
+          <form onSubmit={onSubmit} className="flex font-medium flex-col gap-4 shadow-md px-8 pt-6 h-fit pb-8 mb-4 w-80">
             <div className="flex flex-col gap-1">
               <label className="font-semibold" htmlFor="name">
-                Nome
+                Nome<span className={`font-extrabold text-red-500 ${formData.name && 'hidden'}`}>*</span>
               </label>
               <input
                 className="bg-gray-200 py-2 px-3 shadow border rounded appearance-none focus:outline-emerald-500 focus:bg-white"
@@ -63,11 +67,12 @@ export default function RegisterProduct() {
                 value={formData.name}
                 onChange={handleInputChange}
                 required
+                placeholder="Produto 1"
               />
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-semibold" htmlFor="description">
-                Descrição
+                Descrição<span className={`font-extrabold text-red-500 ${formData.description && 'hidden'}`}>*</span>
               </label>
               <textarea
                 className="bg-gray-200 h-24 py-2 px-3 shadow border rounded appearance-none focus:outline-emerald-500 focus:bg-white resize-none"
@@ -75,19 +80,20 @@ export default function RegisterProduct() {
                 rows={2}
                 value={formData.description}
                 onChange={handleTextareaChange}
-                defaultValue={''}
+                placeholder="Descrição do Produto..."
                 required
               />
             </div>
             <div className="flex flex-col gap-1">
               <label className="font-semibold" htmlFor="price">
-                Preço
+                Preço<span className={`font-extrabold text-red-500 ${formData.price && 'hidden'}`}>*</span>
               </label>
               <input
                 className="bg-gray-200 py-2 px-3 shadow border rounded appearance-none focus:outline-emerald-500 focus:bg-white"
                 type="number"
+                step="any"
                 id="price"
-                placeholder="R$ 9,99"
+                placeholder="R$ 9.99"
                 onChange={handleInputChange}
                 required
               />
@@ -118,7 +124,7 @@ export default function RegisterProduct() {
                 id="tags"
                 value={formData.tags}
                 onChange={handleInputChange}
-                required
+                placeholder="Roupas Acessórios Moda..."
               />
             </div>
             <button className="self-center bg-emerald-500 py-3 px-4 rounded-md shadow-sm text-white font-semibold
