@@ -16,7 +16,7 @@ export default function ListProducts({ products, handleDelete }: Props) {
               Nenhum produto
               <br />foi encontrado
             </h1>
-            <p className="text-center text-neutral-500 text-xl max-md:text-lg font-normal">Visite a seção <strong>Cadastrar</strong> e realize um primeiro registro</p>
+            <p className="text-center text-neutral-500 text-xl max-md:text-lg font-normal">Visite a aba <strong>Cadastrar</strong> e realize um primeiro registro</p>
           </div>
           :
           <h1>tem produto</h1>
