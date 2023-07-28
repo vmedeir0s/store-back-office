@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['"Epilogue"', 'sans-serif']
+      sans: ['"Karla"', 'sans-serif'],
     }
   },
   plugins: [],
