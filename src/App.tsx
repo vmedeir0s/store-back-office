@@ -17,8 +17,8 @@ function App() {
   }
 
   return (
-    <div className="bg-neutral-100 h-[calc(100dvh)] flex items-center flex-col">
-      <header className="w-full h-36 bg-blue-700 flex justify-center gap-4 items-center flex-col">
+    <div className="bg-neutral-100 min-h-screen max-sm:h[calc(100dvh)] flex items-center flex-col">
+      <header className="w-full h-32 bg-blue-700 flex justify-center gap-4 items-center flex-col">
         <Title />
         <div className="flex gap-2">
           <button

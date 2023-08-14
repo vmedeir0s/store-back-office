@@ -27,12 +27,12 @@ export default function Product({
   }
 
   return (
-    <div className="flex flex-col items-center gap-4 shadow-md px-8 pt-6 pb-8 mb-4 h-[589px] w-96 break-words capitalize">
+    <div className="flex flex-col items-center gap-4 shadow-md px-8 py-5 h-[506px] w-80 max-sm:w-11/12 max-sm:h-fit max-sm:p-3 max-sm:gap-1 break-words capitalize mb-4">
       {handleDelete && <button onClick={handleDelete}>X</button>}
-      <img src={productImage} alt={name} className="h-56 w-56 shrink-0" />
+      <img src={productImage} alt={name} className="h-52 w-52 shrink-0 max-sm:h-40 max-sm:w-40" />
       <h3 title={name} className="h-8 text-center  font-medium p-1 truncate w-5/6 overflow-hidden">{name || 'Produto 1'}</h3>
       <h4 className="font-extrabold">{price ? formatCurrency(price) : 'R$ 0.00'}</h4>
-      <ul className="h-20 w-5/6 flex gap-3 justify-center flex-wrap overflow-y-auto">
+      <ul className="h-20 w-5/6 flex gap-3 justify-center flex-wrap overflow-y-auto max-sm:hidden">
         {
           tagsList.length > 0
             ?
@@ -54,7 +54,7 @@ export default function Product({
         }
         { }
       </ul>
-      <p className="h-28 w-5/6 overflow-y-auto">{description || 'Descrição do produto...'}</p>
+      <p className="h-20 w-5/6 overflow-y-auto max-sm:hidden">{description || 'Descrição do produto...'}</p>
     </div>
   )
 }
