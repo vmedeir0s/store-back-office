@@ -17,18 +17,18 @@ function App() {
   }
 
   return (
-    <div className="bg-neutral-100 min-h-screen max-sm:h[calc(100dvh)] flex items-center flex-col">
+    <div className="bg-neutral-100 md:h-screen max-sm:min-h-[calc(100dvh)] flex items-center flex-col">
       <header className="w-full h-32 bg-blue-700 flex justify-center gap-4 items-center flex-col">
         <Title />
         <div className="flex gap-2">
           <button
-            className={`font-semibold shadow-sm shadow-slate-800 p-2 rounded ${navOption == 'register' ? 'bg-neutral-100' : 'bg-neutral-300 hover:bg-neutral-100 '}`}
+            className={`font-semibold shadow-sm shadow-slate-800 p-1 rounded ${navOption == 'register' ? 'bg-neutral-100' : 'bg-neutral-300 hover:bg-neutral-100 '}`}
             onClick={handleButtonRegister}
           >
             Cadastrar
           </button>
           <button
-            className={`font-semibold shadow-sm shadow-slate-800 p-2 rounded ${navOption == 'list' ? 'bg-neutral-100' : 'bg-neutral-300 hover:bg-neutral-100 '}`}
+            className={`font-semibold shadow-sm shadow-slate-800 p-1 rounded ${navOption == 'list' ? 'bg-neutral-100' : 'bg-neutral-300 hover:bg-neutral-100 '}`}
             onClick={handleButtonList}
           >
             Ver Produtos

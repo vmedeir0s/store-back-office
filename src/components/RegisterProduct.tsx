@@ -140,7 +140,7 @@ export default function RegisterProduct() {
                 maxLength={60}
               />
             </div>
-            <button className="self-center bg-emerald-500 py-3 px-4 rounded-md shadow-sm text-white font-semibold
+            <button className="self-center bg-emerald-500 py-[9px] px-4 rounded-md shadow-sm text-white font-semibold
             hover:bg-emerald-400
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 w-28 max-sm:w-2/3" type="submit">Salvar</button>
           </form>
