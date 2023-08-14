@@ -50,6 +50,15 @@ export default function RegisterProduct() {
     });
   }
 
+  function handleNumberKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+    const { value } = event.currentTarget;
+    const maxLength = 7;
+
+    if (value.length >= maxLength && event.key !== 'Backspace') {
+      event.preventDefault();
+    }
+  }
+
   return (
     <main className="grow w-full flex flex-col justify-center items-center">
       <div className="flex flex-col grow gap-1 items-center w-full">
@@ -96,6 +105,8 @@ export default function RegisterProduct() {
                 id="price"
                 placeholder="R$ 9.99"
                 onChange={handleInputChange}
+                onKeyDown={handleNumberKeyDown}
+                max={1000000}
                 required
               />
             </div>

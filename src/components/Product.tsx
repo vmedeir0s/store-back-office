@@ -15,12 +15,23 @@ export default function Product({
 
   let productImage = image ? URL.createObjectURL(image) : imgNotFound;
 
+  function formatCurrency(value: number): string {
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
+    return formatter.format(value);
+  }
+
   return (
     <div className="flex flex-col items-center gap-4 shadow-md px-8 pt-6 pb-8 mb-4 h-[589px] w-96 break-words capitalize">
       {handleDelete && <button onClick={handleDelete}>X</button>}
       <img src={productImage} alt={name} className="h-56 w-56 shrink-0" />
       <h3 title={name} className="h-8 text-center  font-medium p-1 truncate w-5/6 overflow-hidden">{name || 'Produto 1'}</h3>
-      <h4 className="font-extrabold">{price ? `R$ ${price.toFixed(2)}` : 'R$ 0.00'}</h4>
+      <h4 className="font-extrabold">{price ? formatCurrency(price) : 'R$ 0.00'}</h4>
       <ul className="h-20 w-5/6 flex gap-3 justify-center flex-wrap overflow-y-auto">
         {
           tagsList.length > 0
