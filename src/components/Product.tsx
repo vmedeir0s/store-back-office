@@ -10,7 +10,7 @@ export default function Product({
   handleDelete = undefined,
   productInfo,
 }: Props) {
-  const { name, description, price, image, tags, id } = productInfo as ProductWithId;
+  const { name, description, price, image, tags } = productInfo as ProductWithId;
   const tagsList = tags ? tags.split(' ').map((tag) => tag.trim()) : [];
 
   let productImage = image ? URL.createObjectURL(image) : imgNotFound;

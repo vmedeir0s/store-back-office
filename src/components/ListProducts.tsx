@@ -5,7 +5,7 @@ type Props = {
   handleDelete?: (() => void);
 }
 
-export default function ListProducts({ products, handleDelete }: Props) {
+export default function ListProducts({ products }: Props) {
   return (
     <main className="grow w-full flex flex-col justify-center items-center">
       {
