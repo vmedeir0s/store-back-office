@@ -2,7 +2,7 @@ import { ProductWithId } from "../types";
 
 type Props = {
   products: ProductWithId[];
-  handleDelete: (() => void);
+  handleDelete?: (() => void);
 }
 
 export default function ListProducts({ products, handleDelete }: Props) {
