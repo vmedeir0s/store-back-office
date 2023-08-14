@@ -54,7 +54,7 @@ export default function RegisterProduct() {
     <main className="grow w-full flex flex-col justify-center items-center">
       <div className="flex flex-col grow gap-1 items-center w-full">
         <h1 className="text-emerald-500 mt-5 text-3xl font-semibold">Cadastrar novo produto</h1>
-        <div className="flex items-center justify-around border-2 border-red-500 w-4/5 h-full max-sm:flex-col-reverse">
+        <div className="flex items-center justify-around w-4/5 h-full max-sm:flex-col-reverse">
           <form onSubmit={onSubmit} className="flex font-medium flex-col gap-4 shadow-md px-8 pt-6 h-fit pb-8 mb-4 w-80">
             <div className="flex flex-col gap-1">
               <label className="font-semibold" htmlFor="name">
@@ -81,6 +81,7 @@ export default function RegisterProduct() {
                 value={formData.description}
                 onChange={handleTextareaChange}
                 placeholder="Descrição do Produto..."
+                maxLength={90}
                 required
               />
             </div>
@@ -125,6 +126,7 @@ export default function RegisterProduct() {
                 value={formData.tags}
                 onChange={handleInputChange}
                 placeholder="Roupas Acessórios Moda..."
+                maxLength={60}
               />
             </div>
             <button className="self-center bg-emerald-500 py-3 px-4 rounded-md shadow-sm text-white font-semibold
